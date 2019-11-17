@@ -1,3 +1,6 @@
 /complexes/
 *.xtc
 *.gro
+*.pdb
+!/templates
+*.log
