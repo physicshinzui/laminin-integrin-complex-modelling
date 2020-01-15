@@ -4,3 +4,5 @@
 *.pdb
 !/templates
 *.log
+*.dat
+*.out
