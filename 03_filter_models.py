@@ -16,7 +16,7 @@ def reada_vio(violationFile):
                 model_number  = int(row[0].strip())
                 nViolations   = int(row[1].strip())
                 nContacts     = int(row[2].strip())
-                score         = int(row[3].strip())
+                score         = float(row[3].strip())
                 scores.append([model_number, score])
     return scores
 
