@@ -31,7 +31,10 @@ def main():
             nViolations = len(distances[distances<lower])
             nContacts   = len(distances[(distances<=upper) & (distances>=lower)])
 #            score = nContacts -nViolations
-            score = np.log(nContacts/nViolations)
+            if nViolations != 0:
+                score = np.log(nContacts/nViolations)
+            else:
+                score = np.nan
             fout.write(f'{i}, {nViolations}, {nContacts}, {score}\n')
             #if nViolations >= 50:
             #    fout.write(f'# {i}; Too much violations   = {nViolations}\n')
