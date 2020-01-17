@@ -26,12 +26,16 @@ def pymol_process(model_numbers):
 
 def main():
     model_no_w_scores = reada_vio('model_no.out')
-    lower_bound, upper_bound = 50, 60
 
-    top_models = sorted(model_no_w_scores, key=lambda x:x[1], reverse=True)[0:10]
+#    top_models = sorted(model_no_w_scores, key=lambda x:x[1], reverse=True)[0:100]
+    top_models = sorted(model_no_w_scores, key=lambda x:x[1], reverse=False)[0:100]
     top_model_numbers = [i[0] for i in top_models]
-    print(top_models)
-    print(top_model_numbers)
+    with open('rank.log','w') as flog:
+        flog.write('#Rank, MODEL NO, Score\n')
+        for i, elem in enumerate(top_models,1):
+            flog.write(f'{i}, {elem[0]}, {elem[1]}\n')
+            #print(top_model_numbers)
+    sys.exit()
 
     u = Universe("/Volumes/HD-siida/gtail_b1_sys/analysis/merged_aligned_complexes.pdb")
 #    u = Universe("complex_models.pdb")
