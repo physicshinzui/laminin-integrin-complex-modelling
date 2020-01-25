@@ -6,3 +6,5 @@
 *.log
 *.dat
 *.out
+whole_distances.pkl
+interfaces
